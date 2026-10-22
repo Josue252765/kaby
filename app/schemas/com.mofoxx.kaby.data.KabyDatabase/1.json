@@ -1,0 +1,963 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "b0ff70d019832f823fd973ce22192c0c",
+    "entities": [
+      {
+        "tableName": "movimientos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tipo` TEXT NOT NULL, `naturaleza` TEXT NOT NULL, `moneda` TEXT NOT NULL, `monto` TEXT NOT NULL, `tasa_bcv_al_momento` TEXT, `hora_tasa` TEXT, `estado_valuacion` TEXT NOT NULL, `fecha_hora` TEXT NOT NULL, `categoria` TEXT NOT NULL, `motivo` TEXT, `origen` TEXT NOT NULL, `proveniencia_tercero` TEXT, `ref_deuda` INTEGER, `ref_cuota` INTEGER, `tasa_pago` TEXT, `tasa_pago_tipo` TEXT, `hora_tasa_pago` TEXT, `ref_bolso` INTEGER, `ref_ronda` INTEGER, `timestamp_creacion` TEXT NOT NULL, `timestamp_ultima_edicion` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipo",
+            "columnName": "tipo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "naturaleza",
+            "columnName": "naturaleza",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "moneda",
+            "columnName": "moneda",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tasaBcvAlMomento",
+            "columnName": "tasa_bcv_al_momento",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "horaTasa",
+            "columnName": "hora_tasa",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "estadoValuacion",
+            "columnName": "estado_valuacion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaHora",
+            "columnName": "fecha_hora",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "categoria",
+            "columnName": "categoria",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "motivo",
+            "columnName": "motivo",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "origen",
+            "columnName": "origen",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "provenienciaTercero",
+            "columnName": "proveniencia_tercero",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "refDeuda",
+            "columnName": "ref_deuda",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "refCuota",
+            "columnName": "ref_cuota",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "tasaPago",
+            "columnName": "tasa_pago",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "tasaPagoTipo",
+            "columnName": "tasa_pago_tipo",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "horaTasaPago",
+            "columnName": "hora_tasa_pago",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "refBolso",
+            "columnName": "ref_bolso",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "refRonda",
+            "columnName": "ref_ronda",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "timestampCreacion",
+            "columnName": "timestamp_creacion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampUltimaEdicion",
+            "columnName": "timestamp_ultima_edicion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "deudas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT NOT NULL, `tipo_ente` TEXT NOT NULL, `moneda_de_cuota` TEXT NOT NULL, `periodicidad` TEXT NOT NULL, `monto_total` TEXT NOT NULL, `cuota_periodo` TEXT NOT NULL, `fecha_inicio` TEXT NOT NULL, `saldo_pendiente` TEXT NOT NULL, `estado` TEXT NOT NULL, `notas` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tipoEnte",
+            "columnName": "tipo_ente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monedaDeCuota",
+            "columnName": "moneda_de_cuota",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "periodicidad",
+            "columnName": "periodicidad",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "montoTotal",
+            "columnName": "monto_total",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotaPeriodo",
+            "columnName": "cuota_periodo",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaInicio",
+            "columnName": "fecha_inicio",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "saldoPendiente",
+            "columnName": "saldo_pendiente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notas",
+            "columnName": "notas",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "cuotas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `deuda_id` INTEGER NOT NULL, `secuencia` INTEGER NOT NULL, `vencimiento` TEXT NOT NULL, `monto` TEXT NOT NULL, `estado` TEXT NOT NULL, FOREIGN KEY(`deuda_id`) REFERENCES `deudas`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "deudaId",
+            "columnName": "deuda_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "secuencia",
+            "columnName": "secuencia",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "vencimiento",
+            "columnName": "vencimiento",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monto",
+            "columnName": "monto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_cuotas_deuda_id",
+            "unique": false,
+            "columnNames": [
+              "deuda_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_cuotas_deuda_id` ON `${TABLE_NAME}` (`deuda_id`)"
+          },
+          {
+            "name": "index_cuotas_deuda_id_secuencia",
+            "unique": true,
+            "columnNames": [
+              "deuda_id",
+              "secuencia"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_cuotas_deuda_id_secuencia` ON `${TABLE_NAME}` (`deuda_id`, `secuencia`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "deudas",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "deuda_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "bolsos",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT NOT NULL, `modo_cuota` TEXT NOT NULL, `cuota_por_ronda` TEXT, `ronda_actual` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "modoCuota",
+            "columnName": "modo_cuota",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotaPorRonda",
+            "columnName": "cuota_por_ronda",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "rondaActual",
+            "columnName": "ronda_actual",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "bolso_participantes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nombre` TEXT NOT NULL, `notas` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nombre",
+            "columnName": "nombre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "notas",
+            "columnName": "notas",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "bolso_participaciones",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `bolso_id` INTEGER NOT NULL, `participante_id` INTEGER NOT NULL, `ronda` INTEGER NOT NULL, `cuota_comprometida` TEXT NOT NULL, `estado` TEXT NOT NULL, FOREIGN KEY(`bolso_id`) REFERENCES `bolsos`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT , FOREIGN KEY(`participante_id`) REFERENCES `bolso_participantes`(`id`) ON UPDATE NO ACTION ON DELETE RESTRICT )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bolsoId",
+            "columnName": "bolso_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "participanteId",
+            "columnName": "participante_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ronda",
+            "columnName": "ronda",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cuotaComprometida",
+            "columnName": "cuota_comprometida",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_bolso_participaciones_bolso_id",
+            "unique": false,
+            "columnNames": [
+              "bolso_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bolso_participaciones_bolso_id` ON `${TABLE_NAME}` (`bolso_id`)"
+          },
+          {
+            "name": "index_bolso_participaciones_participante_id",
+            "unique": false,
+            "columnNames": [
+              "participante_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bolso_participaciones_participante_id` ON `${TABLE_NAME}` (`participante_id`)"
+          },
+          {
+            "name": "index_bolso_participaciones_bolso_id_participante_id_ronda",
+            "unique": true,
+            "columnNames": [
+              "bolso_id",
+              "participante_id",
+              "ronda"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_bolso_participaciones_bolso_id_participante_id_ronda` ON `${TABLE_NAME}` (`bolso_id`, `participante_id`, `ronda`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "bolsos",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "bolso_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "bolso_participantes",
+            "onDelete": "RESTRICT",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "participante_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "ventas_p2p_mano",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `fecha_hora` TEXT NOT NULL, `bs_netos` TEXT NOT NULL, `tasa_p2p` TEXT NOT NULL, `usdt_cantidad` TEXT NOT NULL, `tasa_bcv_al_momento` TEXT, `hora_tasa_bcv` TEXT, `prima` TEXT, `estado_valuacion` TEXT NOT NULL, `proveniencia` TEXT, `order_number` TEXT, `fuente` TEXT NOT NULL, `estado` TEXT NOT NULL, `timestamp_creacion` TEXT NOT NULL, `timestamp_ultima_edicion` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaHora",
+            "columnName": "fecha_hora",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "bsNetos",
+            "columnName": "bs_netos",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tasaP2p",
+            "columnName": "tasa_p2p",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usdtCantidad",
+            "columnName": "usdt_cantidad",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tasaBcvAlMomento",
+            "columnName": "tasa_bcv_al_momento",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "horaTasaBcv",
+            "columnName": "hora_tasa_bcv",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "prima",
+            "columnName": "prima",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "estadoValuacion",
+            "columnName": "estado_valuacion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "proveniencia",
+            "columnName": "proveniencia",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "orderNumber",
+            "columnName": "order_number",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "fuente",
+            "columnName": "fuente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "estado",
+            "columnName": "estado",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampCreacion",
+            "columnName": "timestamp_creacion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestampUltimaEdicion",
+            "columnName": "timestamp_ultima_edicion",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_ventas_p2p_mano_order_number",
+            "unique": true,
+            "columnNames": [
+              "order_number"
+            ],
+            "orders": [],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_ventas_p2p_mano_order_number` ON `${TABLE_NAME}` (`order_number`)"
+          }
+        ]
+      },
+      {
+        "tableName": "tasas_bcv",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `valor` TEXT NOT NULL, `hora_fuente` TEXT NOT NULL, `fuente` TEXT NOT NULL, `confirmada_por` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "valor",
+            "columnName": "valor",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "horaFuente",
+            "columnName": "hora_fuente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fuente",
+            "columnName": "fuente",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "confirmadaPor",
+            "columnName": "confirmada_por",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_tasas_bcv_hora_fuente",
+            "unique": false,
+            "columnNames": [
+              "hora_fuente"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_tasas_bcv_hora_fuente` ON `${TABLE_NAME}` (`hora_fuente`)"
+          }
+        ]
+      },
+      {
+        "tableName": "lecturas_binance",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`order_number` TEXT NOT NULL, `trade_type` TEXT NOT NULL, `fecha_hora_orden` TEXT NOT NULL, `unit_price` TEXT NOT NULL, `total_price` TEXT NOT NULL, `amount` TEXT NOT NULL, `leido_en` TEXT NOT NULL, `ventana_consulta` TEXT NOT NULL, PRIMARY KEY(`order_number`))",
+        "fields": [
+          {
+            "fieldPath": "orderNumber",
+            "columnName": "order_number",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tradeType",
+            "columnName": "trade_type",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fechaHoraOrden",
+            "columnName": "fecha_hora_orden",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unitPrice",
+            "columnName": "unit_price",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "totalPrice",
+            "columnName": "total_price",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "amount",
+            "columnName": "amount",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "leidoEn",
+            "columnName": "leido_en",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ventanaConsulta",
+            "columnName": "ventana_consulta",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "order_number"
+          ]
+        }
+      },
+      {
+        "tableName": "estado_cuentas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `ancla_monto` TEXT, `ancla_fecha_hora` TEXT, `ultimo_cuadre_at` TEXT, `estado_cuadre` TEXT NOT NULL, `cifra_descuadre` TEXT, `saldo_usdt` TEXT, `leido_en` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "anclaMonto",
+            "columnName": "ancla_monto",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "anclaFechaHora",
+            "columnName": "ancla_fecha_hora",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "ultimoCuadreAt",
+            "columnName": "ultimo_cuadre_at",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "estadoCuadre",
+            "columnName": "estado_cuadre",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cifraDescuadre",
+            "columnName": "cifra_descuadre",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "saldoUsdt",
+            "columnName": "saldo_usdt",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "leidoEn",
+            "columnName": "leido_en",
+            "affinity": "TEXT"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "bitacora",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `tabla` TEXT NOT NULL, `fila_id` INTEGER NOT NULL, `accion` TEXT NOT NULL, `antes` TEXT, `despues` TEXT NOT NULL, `timestamp` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tabla",
+            "columnName": "tabla",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "filaId",
+            "columnName": "fila_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accion",
+            "columnName": "accion",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "antes",
+            "columnName": "antes",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "despues",
+            "columnName": "despues",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_bitacora_tabla_fila_id",
+            "unique": false,
+            "columnNames": [
+              "tabla",
+              "fila_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_bitacora_tabla_fila_id` ON `${TABLE_NAME}` (`tabla`, `fila_id`)"
+          }
+        ]
+      },
+      {
+        "tableName": "bitacora_errores",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `capa` TEXT NOT NULL, `mensaje` TEXT NOT NULL, `detalle_tecnico` TEXT, `timestamp` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "capa",
+            "columnName": "capa",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "mensaje",
+            "columnName": "mensaje",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "detalleTecnico",
+            "columnName": "detalle_tecnico",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "settings",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `moneda_referencia` TEXT NOT NULL, `ultima_exportacion_externa` TEXT, `guia_alarmas_oem_vista` INTEGER NOT NULL, `version_formato_respaldo` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "monedaReferencia",
+            "columnName": "moneda_referencia",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ultimaExportacionExterna",
+            "columnName": "ultima_exportacion_externa",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "guiaAlarmasOemVista",
+            "columnName": "guia_alarmas_oem_vista",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "versionFormatoRespaldo",
+            "columnName": "version_formato_respaldo",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "acta_casillas",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `hito` TEXT NOT NULL, `casilla_id` TEXT NOT NULL, `veredicto` TEXT NOT NULL, `causa_bloqueo` TEXT, `evidencia` TEXT, `timestamp` TEXT NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "hito",
+            "columnName": "hito",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "casillaId",
+            "columnName": "casilla_id",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "veredicto",
+            "columnName": "veredicto",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "causaBloqueo",
+            "columnName": "causa_bloqueo",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "evidencia",
+            "columnName": "evidencia",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "timestamp",
+            "columnName": "timestamp",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_acta_casillas_hito_casilla_id",
+            "unique": false,
+            "columnNames": [
+              "hito",
+              "casilla_id"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_acta_casillas_hito_casilla_id` ON `${TABLE_NAME}` (`hito`, `casilla_id`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b0ff70d019832f823fd973ce22192c0c')"
+    ]
+  }
+}

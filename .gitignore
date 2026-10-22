@@ -1,0 +1,66 @@
+# Android / Gradle local state and generated output
+local.properties
+.gradle/
+.kotlin/
+build/
+**/build/
+.externalNativeBuild/
+.cxx/
+
+# Android Studio / IntelliJ local files
+.idea/
+*.iml
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
+captures/
+
+# Generated Android artifacts and diagnostics
+*.apk
+*.aab
+output-metadata.json
+*.log
+*.hprof
+*.dmp
+
+# Local credentials, signing material, and service configuration
+.env*
+!.env.example
+google-services.json
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+
+# Local financial data and backups
+*.db
+*.db-*
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.sqlite3-*
+*.csv
+*.backup
+*.bak
+*.dump
+kaby-latest.json
+**/local-backup/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+
+# Temporary files and generated tool state
+*.tmp
+*.temp
+*.swp
+*.orig
+*~
+.DS_Store
+Thumbs.db
+/.impeccable/questions/
+/.impeccable/build/
